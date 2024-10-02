@@ -1,4 +1,56 @@
-# 2024-09-18 수업 내용
+## 2024-10-02 수업 내용
+
+# Page Router
+
+1. App router [Y / N] : N
+2. src/ [Y / N] : 상관없음 N: 학습할 때 용이함 허나 현재 src는 100%로 사용함
+3. "/pages" 우선권 높음
+
+<(pages) / src-pages> - 첫번째를 주로 사용함
+
+{
+(pages)
+ㄴ index.jsx (root: 기본 root 실행시)
+ㄴ foo.jsx (Ex: localhost:3000/foo)
+ㄴㄴ bar.jsx (Ex: localhost:3000/foo/bar)
+}
+
+/foo/bar.jsx = ~/foo/bar
+/foo/index.jsx = ~/foo
+
+---
+
+\*.dir,file 모두 사용 가능
+Dynamic Page Router
+
+[slug] : 일반
+[...slug] : catch-all segments : 세그먼트 없을시 404
+[[...slug]] : optional catch-all segments : 세그먼트 없을시 undefined
+
+/pages
+ㄴ[foo].jsx []가 아니었을시 ~/foo 였지만 [] 사용시 console.log 찍어보면 ex) ~/bar => {foo : bar}
+
+~/blog/[foo] => /blog/1040?id=4999&name=kim
+
+~/[blog]/foo => /Key값 ex) My/foo/~~~
+
+~/[blog]/[...foo] => 404에러 안나고 없더라도 undefined로 지정해버림
+
+# App Router
+
+1. App router [Y / N] : Y
+2. src/ [Y / N] : 상관없음 N: 학습할 때 용이함 허나 현재 src는 100%로 사용함
+3. appR, pageR 둘중 하나만 appR하다가 pageR안됨염
+4. dir name -> segment (dir만 segment가 됨, 파일은 안됨)
+
+/src/app/
+
+src/app
+ㄴblog
+ㄴㄴ[slug]
+ㄴㄴㄴpage.js
+
+## 2024-09-18, 09-25 수업 내용
 
 3. Next.js 기초와 내장 컴포넌트
 
