@@ -1,3 +1,7 @@
+## 2024-10-11 수업 내용
+
+# Page Project Layout - app
+
 ## 2024-10-02 수업 내용
 
 # Page Router
