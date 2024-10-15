@@ -54,6 +54,51 @@ src/app
 ㄴㄴ[slug]
 ㄴㄴㄴpage.js
 
+URL 예시
+URL 경로: blog/fooo
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/fooo?id=123&name=John
+출력:
+makefile
+코드 복사
+fooo: fo
+id: 123
+name: John
+URL 경로: blog/foo/bar
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/foo/bar?id=456&name=Jane
+출력:
+makefile
+코드 복사
+fooo: foo/bar
+id: 456
+name: Jane
+URL 경로: blog/foo/bar/baz
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/foo/bar/baz?id=789&name=Mike
+출력:
+makefile
+코드 복사
+fooo: foo/bar/baz
+id: 789
+name: Mike
+요약
+경로: /blog/[[...fooo]] 부분은 여러 레벨의 경로를 포함할 수 있습니다. 예를 들어, /blog/foo, /blog/foo/bar, /blog/foo/bar/baz 등.
+쿼리 파라미터: ?id=value&name=value 형태로 추가하여 검색 파라미터를 전달할 수 있습니다.
+이렇게 URL을 설정하면 주어진 코드에서 fooo, id, name 값을 적절하게 출력할 수 있습니다.
+
 ## 2024-09-18, 09-25 수업 내용
 
 3. Next.js 기초와 내장 컴포넌트
