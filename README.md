@@ -2,6 +2,60 @@
 
 # Page Project Layout - app
 
+1. 기본 개념
+   레이아웃: 레이아웃은 페이지의 전체 구조를 정의합니다. 예를 들어, 헤더, 사이드바, 푸터 등 페이지 전반에 걸쳐 동일하게 유지되어야 하는 UI 요소를 포함할 수 있습니다.
+   중첩 레이아웃: Next.js에서는 레이아웃을 중첩하여 사용할 수 있습니다. 즉, 각 페이지에 대해 고유한 레이아웃을 설정하고, 특정 레이아웃 안에 다른 레이아웃을 포함할 수 있습니다.
+2. 기본 파일 구조
+   app/layout.jsx: 앱의 기본 레이아웃을 정의하는 파일입니다. 여기서 공통적인 UI 요소를 설정하고, 페이지의 모든 부분에 적용됩니다.
+   app/page.jsx: 각 페이지에 대한 구성 요소를 정의하는 파일입니다. 기본 레이아웃 안에서 해당 페이지의 내용을 렌더링합니다.
+3. 예제
+   다음은 간단한 레이아웃 구조의 예입니다.
+
+app/layout.jsx
+jsx
+코드 복사
+export default function Layout({ children }) {
+return (
+<div>
+<header>
+<h1>My App Header</h1>
+</header>
+<main>{children}</main>
+<footer>
+<p>My App Footer</p>
+</footer>
+</div>
+);
+}
+이 예제에서는 레이아웃 컴포넌트가 header, main, footer를 포함하고 있습니다. children은 해당 레이아웃 안에서 각 페이지의 내용을 나타냅니다.
+
+app/page.jsx
+jsx
+코드 복사
+import Layout from './layout';
+
+export default function Page() {
+return (
+<Layout>
+<h2>Welcome to My App!</h2>
+<p>This is the home page content.</p>
+</Layout>
+);
+}
+이 예제에서는 Page 컴포넌트가 Layout을 포함하고 있으며, Layout의 main 영역에 해당 페이지의 내용을 전달하고 있습니다.
+
+1. foo
+   정적 경로: foo라는 이름의 폴더를 생성하면, /foo라는 정적 경로를 생성합니다. 이 경우, foo라는 폴더 안에 있는 page.jsx 또는 index.jsx 파일이 /foo 경로에 해당하는 페이지가 됩니다.
+2. [foo]
+   단일 동적 세그먼트: foo가 대괄호([])로 감싸인 경우, 해당 부분은 동적 세그먼트를 나타냅니다. 예를 들어, blog/[foo]라는 폴더를 만들면 /blog/abc, /blog/123과 같은 URL에서 abc나 123이 foo로 전달됩니다.
+   이 경우 foo는 동적 경로 변수로 사용되어, 사용자가 입력한 URL에 따라 다른 값을 가질 수 있습니다.
+3. [...foo]
+   다중 동적 세그먼트: foo가 세 개의 점(...)과 함께 대괄호로 감싸인 경우, 해당 부분은 여러 개의 동적 세그먼트를 허용합니다. 예를 들어, blog/[...foo]라는 폴더를 만들면 /blog, /blog/abc, /blog/abc/def와 같이 다양한 경로에서 foo 배열이 생성됩니다.
+   이 경우, foo는 입력된 URL 경로의 모든 세그먼트를 배열로 받을 수 있습니다. 예를 들어, /blog/abc/def의 경우 foo는 ['abc', 'def']로 전달됩니다.
+4. [[...foo]]
+   선택적 다중 동적 세그먼트: foo가 두 쌍의 대괄호로 감싸인 경우, 이는 선택적 다중 동적 세그먼트를 나타냅니다. 예를 들어, blog/[[...foo]]라는 폴더를 만들면 /blog, /blog/abc, /blog/abc/def 등에서 모두 이 경로를 처리할 수 있습니다.
+   이 경우 foo는 URL에 값이 없을 수도 있고, 하나 이상의 세그먼트를 가질 수도 있습니다. 즉, foo는 URL의 존재 여부에 따라 undefined, [], 또는 ['abc', 'def']와 같은 값을 가질 수 있습니다.
+
 ## 2024-10-02 수업 내용
 
 # Page Router
@@ -39,6 +93,77 @@ Dynamic Page Router
 ~/[blog]/foo => /Key값 ex) My/foo/~~~
 
 ~/[blog]/[...foo] => 404에러 안나고 없더라도 undefined로 지정해버림
+
+주어진 코드에 따라 올바른 URL을 입력하는 방법은 다음과 같습니다.
+
+URL 경로: /blog/foo
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/foo?id=123&name=John
+출력:
+makefile
+코드 복사
+foo[0]: foo
+foo[1]: 값이 없습니다
+foo[2]: 값이 없습니다
+id: 123
+name: John
+pid: 값이 없습니다
+URL 경로: /blog/foo/bar
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/foo/bar?id=456&name=Jane
+출력:
+makefile
+코드 복사
+foo[0]: foo
+foo[1]: bar
+foo[2]: 값이 없습니다
+id: 456
+name: Jane
+pid: 값이 없습니다
+URL 경로: /blog/foo/bar/baz
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/foo/bar/baz?id=789&name=Mike
+출력:
+makefile
+코드 복사
+foo[0]: foo
+foo[1]: bar
+foo[2]: baz
+id: 789
+name: Mike
+pid: 값이 없습니다
+URL 경로: /blog/foo/bar/baz/extra
+
+쿼리 파라미터: id와 name을 포함합니다.
+완전한 URL:
+bash
+코드 복사
+http://localhost:3000/blog/foo/bar/baz/extra?id=101&name=Alice
+출력:
+makefile
+코드 복사
+foo[0]: foo
+foo[1]: bar
+foo[2]: baz
+id: 101
+name: Alice
+pid: 값이 없습니다
+요약
+경로: /blog/[[...foo]]는 여러 개의 경로 매개변수를 허용하며, foo 배열의 인덱스에 따라 값이 출력됩니다.
+쿼리 파라미터: ?id=value&name=value 형태로 추가하여 검색 파라미터를 전달할 수 있습니다.
+이렇게 URL을 설정하면 주어진 코드에서 foo, id, name, pid 값을 적절하게 출력할 수 있습니다. pid는 쿼리 파라미터에 포함되어 있지 않기 때문에 항상 "값이 없습니다"로 출력됩니다.
 
 # App Router
 
