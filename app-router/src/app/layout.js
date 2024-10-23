@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,6 +15,25 @@ export default function RootLayout({ children }) {
       <body>
         <header>
           <h1>====== Header ======</h1>
+          <nav>
+            <ul style={{ display: "flex", listStyle: "none", padding: 0 }}>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/">Home</Link>
+              </li>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/about">About</Link>
+              </li>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/blog">Blog</Link>
+              </li>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/slug">Slug</Link>
+              </li>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/temp">Temp</Link>
+              </li>
+            </ul>
+          </nav>
         </header>
         <main>{children}</main>
         <footer>

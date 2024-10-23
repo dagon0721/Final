@@ -1,6 +1,26 @@
-## 2024-10-11 수업 내용
+## 2024-10-11/10-23 수업 내용
 
 # Page Project Layout - app
+
+1. Static Resource
+
+1) 정적 자원 중 이미지 파일은 SEO에 많은 영향을 미친다,
+2) 다운로드 시간이 많이 걸리고, 렌더링 후에 레이아웃이 변경되는 등 UX에 영향을 미친다,
+3) 이것을 누적 레이아웃 이동(CLS: Cumulative Layout Shift)이라고 한다.
+4) Image 컴포넌트를 사용하면 CLS문제를 해결한다.
+5) lazy loading: 이미지 로드 시점을 필요할 때까지 지연시키는 기술이다.
+6) 이미지 사이즈 최적화로 사이즈를 1/10이하로 줄여 준다.
+7) placeholder를 제공한다.
+
+2. Images component Remote
+
+1) Pixabay와 같은 외부 이미지를 사용하려면 next.config.mjs에 URL을 추가해 줘야 한다.
+2) 만일 파일이 없다면 Project root에 추가해 주면 된다. 3)간단하게 도메인만 등록해줘도 되지만, 공식 사이트에서는 remotePatterns [ {*protocol, *hostname, post, pathname}] 추천
+3) Pixabay의 경우 원하는 이미지를 우클릭 후 주소 복사를 하면된다.
+
+3. 코드 구성과 데이터 불러오기
+   3-1. 디렉토리 구조 구성
+   3-2. 데이터 불러오기
 
 ## 2024-10-02 수업 내용
 
