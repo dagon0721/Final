@@ -1,5 +1,44 @@
 ## 2024-10-30 수업 내용
 
+1. 서버에서 REST API 사용하기
+
+1) REST API를 호출할 때는 public API를 호출할 것인지, private API를 호출할 것인지를 먼저 확인해야 한다.
+2) Public API는 어떤 인증이나 권환도 필요 없으며 누구나 호출할 수 있다.
+
+# Next.js REST API 사용
+
+# 1. REST API - 개요
+
+1. REST란 자원을 이름으로 구분하여 그 자원의 상태를 통신을 통해 주고 받는 것을 의미한다.
+2. HTTP URI 를 이용해서 자원을 명시한다.
+3. HTTP Method(POST, GET, PUT, DELETE, PATCH 등)를 통해 자원에 CRUD를 적용한다.
+4. RESPT API란 REST의 규칙을 적용한 API를 의미한다.
+
+# 2. Json Server
+
+$ npm i -g json-server
+$ json-server ./data.json --port 3001 (포트 다르게 쓰고 있으므로)
+
+1. Backend가 개발되기 전이나, 아직 외부 API가 결정되지 않았다면 local에 Json server를 구축하고 Forntend 개발을 하기에 적합한 node 패키지 입니다.
+
+2. Axio란? npm i axios
+
+1) [Fetch API]
+   -1 내장 API: 브라우저에 내장되어 있어 별도의 설치가 필요 없다.
+   -2 Promise 기반: 비동기 작업을 처리하는 데 익숙한 구조다.
+   -3 스트림 처리: 데이터를 스트리밍으로 처리할수 있는 기능이 있다.
+
+2) [결론]
+   -1 복장한 요청이나 에러 처리가 필요한 경우에는 axios가 더 간단할수 있다.
+
+3. Axios 사용하기
+
+1) 비동기 데이터 로딩과 상태 관리가 제대로 고려되지 않았기 때문에 몇가지 문제가 있을 수 있다.
+2) 특히, Next.js와 같은 리액트 기반 앱에서 비동기 데이터를 처리할 때 렌더링 주기에 맞게 상태를 관리해야 한다.
+
+3) [개선할 부분]
+   -1 useState와 useEffect 사용
+
 ## 2024-10-11/10-23 수업 내용
 
 # Page Project Layout - app

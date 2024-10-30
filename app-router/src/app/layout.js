@@ -32,6 +32,9 @@ export default function RootLayout({ children }) {
               <li style={{ marginRight: "20px" }}>
                 <Link href="/temp">Temp</Link>
               </li>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/rest-api">Axios</Link>
+              </li>
             </ul>
           </nav>
         </header>
