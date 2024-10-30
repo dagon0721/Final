@@ -10,7 +10,9 @@ export default function RestApi() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/test");
+        const res = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
         setUsers(res.data);
       } catch (error) {
         console.error("Error fetching data.", error);
@@ -34,8 +36,8 @@ export default function RestApi() {
           <div key={id}>
             <h2>{user.id}</h2>
             <h3>{user.name}</h3>
-            <h3>{user.title}</h3>
-            <h3>{user.body}</h3>
+            <h3>{user.email}</h3>
+            <h3>{user.address.geo.lat}</h3>
           </div>
         );
       })}
