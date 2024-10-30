@@ -1,3 +1,5 @@
+## 2024-10-30 수업 내용
+
 ## 2024-10-11/10-23 수업 내용
 
 # Page Project Layout - app
@@ -108,7 +110,7 @@ export default function Page() {
 return (
 <Layout>
 
-<h2>Welcome to My App!</h2>
+<p>Welcome to My App!</p>
 <p>This is the home page content.</p>
 </Layout>
 );
