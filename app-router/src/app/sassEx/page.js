@@ -5,7 +5,7 @@ export default function SassEx() {
     <>
       <div className={scss.bar}>
         <h1>SassEx Page</h1>
-        <button>Button</button>
+        <h2 className={scss.foo}>Button</h2>
       </div>
     </>
   );
