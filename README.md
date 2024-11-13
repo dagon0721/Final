@@ -1,3 +1,50 @@
+## 2024-11-13 수업 내용
+
+# 07-1 UI 라이브러리
+
+1. UI 라이브러리, 프레임워크, 유틸리티 기능이 필수는 아니다.
+2. 다만 생산성 향상 및 UI의 일관성을 유지하는데 많은 도움을 받을 수 있다.
+3. 3가지의 프레임워크(Chakra UI, TailwindCSS, Headless)
+
+# 07-2 Chakra UI
+
+1. 오픈소스 컴포넌트 라이브러리로, 모듈화 되어 있고 접근성이 뛰어나며 보기 좋은 UI를 만들 수 있다.
+2. 버튼, 모달, 입력 등 다양한 내장 컴포넌트를 제공한다.
+3. dark mode 및 light mode를 모두 지원
+4. Chakra UI의 useColorMode 훅을 사용해서 현재 사용하는 컬러 모드를 확인할 수 있다.
+5. 기본 컴포넌트를 조합해서 새로운 컴포넌트를 쉽게 만들 수 있다.
+6. 타입스크립트로 작성되었으며 개발자에게 최고의 개발 경험을 제공한다.
+
+# 07-3 Tailwind CSS
+
+1. 오직 CSS만 지원(X JavaScript)
+2. 자바스크립트 모듈이나 리액트 컴포넌트를 제공하지 않기 때문에 필요한 경우 직접 만들어서 사용해야 한다.
+3. 디자인의 자유도가 높다. 변수 값을 조정하여 개성있는 디자인을 만들 수 있다.
+4. dark mode 및 light mode를 쉽게 적용할 수 있다.
+5. 빌드 시점에 사용하지 않는 클래스는 제거 되기 때문에 높은 수준의 최적화를 지원한다.
+
+## 2024-11-13 Next.js의 UI Framework 수업 내용
+
+# 1. Project 생성
+
+1. 기말고사 때도 무조건 npx create-next-app@14로 하기 latest ㄴㄴ, 모드 All yes
+
+# 2. Tailwind CSS
+
+1. React를 기준으로 하고 있어서 바로 코드를 사용하면 오류가 발생할 수 있다.
+2. Test코드는 tailwindcss.com에 나와 있는 것이 오류가 적다.
+3. Test과정에서 img 태그 등 몇가지는 추가로 설정하지 않으면 오류 발생
+4. class도 className으로 수정해야 한다.
+
+# 3. Headless UI
+
+# 4. Chakra UI
+
+1. App/chakra/page.js 파일 생성
+2. Snippets를 설치하면 src/components/ui 아래 추가 component가 설치된다.
+
+# 5. React-icon
+
 ## 2024-11-06 수업 내용
 
 # CSS와 내장 스타일링 메서드
