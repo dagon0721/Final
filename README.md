@@ -1,3 +1,51 @@
+## 2024-11-20 수업 내용
+
+# 08 Next.js의 Props 전달 방법
+
+# Props 흐름의 이해
+
+1.  Next.js의 데이터 흐름은 단방향으로 이루어 진다.
+2.  즉 parents에서 child component의 방향으로 props의 흐름이 이루어진다.
+3.  따라서 계층 구조가 복잡해 지면 Props Drilling 문제가 발생한다.
+4.  Props Drilling은 여러 개의 component를 지나 props가 전달 되면서 발생하는 문제이다.
+5.  Props Drilling은 다음과 같은 문제를 발생 시킬 수 있다.
+6.  중간에 위치한 component에 불필요한 props를 전달해야 하는 문제
+7.  타겟 component까지 props가 전달되지 않을 경우 원인 규명의 어려움
+8.  필요 이상을 코드가 복잡해 지는 문제
+9.  이런 문제를 해결하려면 props를 전역으로 사용하면 된다.
+10. Next.js에서 props를 전역으로 사용하기 위해 Context API, Redux 등을 사용한다.
+11. ex) A 호출 B -> A-parent, B-child, C 호출 A,B => A와 B의 관계, C와 A, B의 관계가 공존
+12. A는 B만 호출 할 수 있고, C는 A,B 모두를 호출 할수 있으며 그 반대는 불가능
+13. 그리고 B는 아무것도 호출 X, A는 C를 호출 할 수 없는 관계가 됨
+
+# Context API
+
+1. UX 구축에 많이 사용되는 기능
+2. 16.3 버전부터 정식적으로 지원
+3. 일반적으로 props는 부모에서 자식으로 전달되는 단방향 통신을 하는데
+4. Context API는 특정 component 가 props를 사용하지 않고, 하위 component를 포함한 모든 component에 데이터를 공유할 수 있는 기능을 제공
+5. 즉 전역으로 데이터를 사용할수 있도록 해준다.
+6. Context API는 createContext, Provider, useContext 개념만 알면 적용이 가능하다.
+7. 간혹 Consumer를 useContext 대신 사용하는 경우가 있으나 function형 component에서는 많이 사용 X
+
+# 주요 Directory & File
+
+1. components Directory 애플리케이션 전반에서 재사용될 수 있는 공통 컴포넌트를 보관한다.
+2. 특정 기능에 종속되지 않으며, 다양한 페이지나 기능에서 재사용 할 수 있는 component를 모아 둔다.
+3. features Directory 특정 기능이나 도메인 별로 코드를 구성하는 데 사용
+4. 사용자 인증 기능, 프로필 관리 기능 등 각 기능과 관련된 상태 관리, API 요청, 슬라이스 컴포넌트 등을 보관
+5. 재 사용이 불가능하거나 가능하더라도 많은 수정을 해야 하는 컴포넌트를 관리
+6. Redux Slice는 Redux Toolkit에서 사용되는 용어로, 특정 기능과 관련된 상태와 reducer 함수의 모음을 나타냄
+7. Slice라는 이름은 애플리케이션 상태의 한 부분을 의미
+8. Redux Toolkit의 createSlice 함수를 사용하면 특정 기능과 관련된 상태, 액션, reducer를 한곳에서 정의 할 수 있어 관리하기가 용이함
+9. Redux Provider는 Reudx의 상태 등을 공급하기 위한 파일이다.
+10. Provider는 사용하고자 하는 page에서 사용하면 된다.
+11. 다만 전역적으로 사용할 때 layout 파일에 정의하면 'use client'를 사용해야 하기 때문에 별도의 component로 만들어서 사용하는 것이 좋다.
+
+# Context API vs. Redux
+
+# Redux
+
 ## 2024-11-13 수업 내용
 
 # 07-1 UI 라이브러리
