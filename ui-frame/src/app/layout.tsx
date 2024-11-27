@@ -5,7 +5,10 @@ import "./globals.css";
 import { Provider } from "@/components/ui/provider";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-
+import CounterProvider from "@/store/CounterProvider";
+import { Counter } from "@/features/counter/Counter";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -13,33 +16,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <ThemeProvider>
-        <body>
-          {/* Header Section */}
-          <header style={{ textAlign: "center", padding: "20px", backgroundColor: "#f4f4f4" }}>
-            <h1>Header</h1>
-            <nav>
-              <Link href="/" style={{ margin: "0 10px", textDecoration: "none", color: "blue" }}>
-                Home
-              </Link>
-              <Link href="/props-flow" style={{ margin: "0 10px", textDecoration: "none", color: "blue" }}>
-                Props-Flow
-              </Link>
-            </nav>
-          </header>
+      <CounterProvider>
+        <ThemeProvider>
+          <body>
+            <Header></Header>
 
-          {/* Main Content */}
-          <main style={{ padding: "20px" }}>
-            <ThemeToggleButton />
-            <Provider>{children}</Provider>
-          </main>
+            {/* Main Content */}
+            <main style={{ padding: "20px" }}>
+              <ThemeToggleButton />
+              <Provider>{children}</Provider>
+            </main>
 
-          {/* Footer Section */}
-          <footer style={{ textAlign: "center", padding: "20px", backgroundColor: "#f4f4f4" }}>
-            <h1>Footer</h1>
-          </footer>
-        </body>
-      </ThemeProvider>
+            <Footer></Footer>
+          </body>
+        </ThemeProvider>
+      </CounterProvider>
     </html>
   );
 }

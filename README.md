@@ -1,3 +1,5 @@
+## 2024-11-27 수업 내용
+
 ## 2024-11-20 수업 내용
 
 # 08 Next.js의 Props 전달 방법
@@ -54,8 +56,20 @@
 7. 상태의 변경을 예측 가능하게 하고, 전역 state 관리를 더 구조적으로 지원한다.
 8. store, reducer, action 등의 개념을 사용해 state와 state dispatch를 관리한다.
 9. 장점: 명확한 상태 관리 구조, 미들웨어 지원, 디버깅 도구, 모든 프레임워크와 호환
+10. 단점: 설정과 코드 복잡도, 추가 라이브러리 필요, 작은 애플리케이션에는 과한 설정
 
 # Redux
+
+npm install @reduxjs/toolkit react-redux
+
+1. store 설정 파일 생성, store파일은 Redux 스토어를 설정하는 파일로, 기능별 Slice파일을 이곳에 등록
+2. 모든 reducer를 한곳에 모아 중앙에서 관리하기 위한 파일
+3. 새로운 기능이 추가되면, 해당 기능의 Slice를 생성하고 등록
+4. useSelector는 Redux store의 상태를 선택하는 데 사용
+5. 컴포넌트 내부에서 이 Hook을 사용하면 Redux store에서 필요한 state를 가져와 사용할 수 있다.
+6. useDispatch는 Redux store의 action을 디스패치 하는데 사용된다.
+7. 즉, Component에서 state를 변경하거나 업데이트할 때 이 Hook을 사용한다.
+8. counterSlice에서 정의한 reducer를 호출하여, increment, decrent버튼에 적용한다.
 
 ## 2024-11-13 수업 내용
 

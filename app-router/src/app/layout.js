@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import CounterProvider from "@/store/CounterProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +44,9 @@ export default function RootLayout({ children }) {
               </li>
               <li style={{ marginRight: "20px" }}>
                 <Link href="/sassEx">SassEx</Link>
+              </li>
+              <li style={{ marginRight: "20px" }}>
+                <Link href="/counter">Counter</Link>
               </li>
             </ul>
           </nav>
