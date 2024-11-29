@@ -1,6 +1,37 @@
-## 2024-11-27 수업 내용
+## 2024-11-29 수업 내용
 
-## 2024-11-20 수업 내용
+1. $ npx create-next-app@14
+
+# GitHub Pages 기본 저장소 생성
+
+1. 이 저장소는 기본적인 GitHub Page로 이 곳에 정적 페이지를 생성
+
+# 배포할 프로젝트 저장소 생성
+
+1. Working directory에 프로젝트를 새로 만들고, /page.js의 내용을 삭제 후 수정
+2. 간단한 라우팅 페이지를 몇 개 만들어 준다.
+
+# 개인 Token을 이용한 GitHub 연동
+
+1. GitHub 프로필 Settings
+2. Developer Settings
+3. Tokens (classic)
+4. Generate new token (classic)
+5. Note -> 기억할수 있게
+6. git remote add origin https://(토큰)@github.com/dagon0721/foo.git
+
+# GitHubPage
+
+1. npm i gh-pages
+2. package.json에 "homepage" : "https://dagon0721.github.io/foo"
+3. scripts 안에 "predeploy" : "npm run build",
+   "deploy" : "gh-pages -d out"
+4. next.config.mjs에서 const nextConfig = {
+   output: 'export',
+   distDir: 'out'
+   };
+
+## 2024-11-20/27 수업 내용
 
 # 08 Next.js의 Props 전달 방법
 
